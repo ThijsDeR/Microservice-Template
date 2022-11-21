@@ -1,4 +1,3 @@
-import { MongoClient } from "mongodb";
 import express from "express"
 import dotenv from "dotenv"
 import cors from "cors";
@@ -28,7 +27,7 @@ app.use(cors(corsOptions))
 
 app.get('/', (req, res) => res.status(200).send())
 
-app.use("/users", EXAMPLEROUTER)
+app.use("/v1/<ROUTE>", EXAMPLEROUTER)
 
 app.listen(port, () => {
     console.log(`Listening on ${port}`)

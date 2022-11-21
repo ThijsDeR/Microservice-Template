@@ -2,6 +2,7 @@ import { MongoClient } from "mongodb";
 import bodyParser from 'body-parser';
 import express from 'express'
 import dotenv from 'dotenv'
+import { sendResponse } from "../../responseJson";
 dotenv.config()
 const jsonParser = bodyParser.json()
 const EXAMPLEROUTER = express.Router()
@@ -23,9 +24,9 @@ EXAMPLEROUTER.get("/", async (req, res, next) => {
         const dataArray = await data.toArray()
         client.close();
 
-        res.status(200).send(dataArray)
+        sendResponse(req, res, 200, "EXAMPLE TITLE", 1, dataArray ? dataArray : {})
     } catch (err) {
-        res.status(500).send(err);
+        sendResponse(req, res, 500, "EXAMPLE TITLE", 1, null, err)
     }
 })
 
