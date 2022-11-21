@@ -8,7 +8,7 @@ const EXAMPLEROUTER = express.Router()
 
 const DBUser = process.env.DB_USER || "";
 const DBPassword = process.env.DB_PASSWORD || "";
-const url = `mongodb+srv://${DBUser}:${DBPassword}@tjourney.sbi37ec.mongodb.net/?retryWrites=true&w=majority`;
+const url = `mongodb+srv://${DBUser}:${DBPassword}@uve-database.nno1qlo.mongodb.net/?retryWrites=true&w=majority`;
 
 EXAMPLEROUTER.get("/", async (req, res, next) => {
     const client = await MongoClient.connect(url, { useNewUrlParser: true })
